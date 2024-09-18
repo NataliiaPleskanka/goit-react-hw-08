@@ -31,11 +31,8 @@ function App() {
   };
 
   useEffect(() => {
-    window.localStorage.setItem(
-      "saved-contacts",
-      JSON.stringify(filteredContacts)
-    );
-  }, [filteredContacts]);
+    window.localStorage.setItem("saved-contacts", JSON.stringify(contacts));
+  }, [contacts]);
 
   const addContact = (newContact) => {
     setContacts((contacts) => {
