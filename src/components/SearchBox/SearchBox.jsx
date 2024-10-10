@@ -4,7 +4,7 @@ import css from "./SearchBox.module.css";
 import { setFilter } from "../../redux/filtersSlice";
 import { getFilter } from "../../redux/filtersSlice";
 
-export default function SearchBox() {
+function SearchBox() {
   const dispatch = useDispatch();
   const filter = useSelector(getFilter);
   const inputId = useId();
@@ -27,3 +27,4 @@ export default function SearchBox() {
     </div>
   );
 }
+export default SearchBox;

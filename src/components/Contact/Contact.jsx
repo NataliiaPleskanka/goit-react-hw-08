@@ -3,7 +3,7 @@ import { deleteContact } from "../../redux/contactsSlice";
 import css from "./Contact.module.css";
 import { FaUser, FaPhone } from "react-icons/fa6";
 
-export default function Contact({ contact }) {
+function Contact({ contact }) {
   const dispatch = useDispatch();
   function onDelete(id) {
     dispatch(deleteContact(id));
@@ -29,3 +29,4 @@ export default function Contact({ contact }) {
     </>
   );
 }
+export default Contact;
