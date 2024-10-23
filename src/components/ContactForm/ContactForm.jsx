@@ -1,5 +1,5 @@
-import { useSelector, useDispatch } from "react-redux";
-import { addContact } from "../../redux/contactsSlice";
+import { useDispatch } from "react-redux";
+import { addContactThunk } from "../../redux/contactsOps";
 import { Formik, Form, Field } from "formik";
 import { useId } from "react";
 import { nanoid } from "nanoid";
@@ -29,7 +29,7 @@ function ContactForm() {
 
   const handleSubmit = (values, actions) => {
     values.id = nanoid();
-    dispatch(addContact(values));
+    dispatch(addContactThunk(values));
     actions.resetForm();
   };
 

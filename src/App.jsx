@@ -2,30 +2,28 @@ import css from "./App.module.css";
 import ContactList from "./components/ContactList/ContactList";
 import ContactForm from "./components/ContactForm/ContactForm";
 import SearchBox from "./components/SearchBox/SearchBox";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchContacts } from "./redux/contactsOps";
-import { useDispatch, useSelector } from "react-redux";
 import { selectIsLoading, selectError } from "./redux/contactsSlice";
 
-function App() {
+export default function App() {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const isError = useSelector(selectError);
-
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
+
+  const isLoading = useSelector(selectIsLoading);
+  const isError = useSelector(selectError);
 
   return (
     <div className={css.container}>
       <h1 className={css.title}>Phonebook</h1>
       <ContactForm />
       <SearchBox />
-      {isLoading && !isError && <p>Loading contacts...</p>}
-      {isError && <p>Error! Try again later</p>}
+      {isLoading && <h2>Loading...</h2>}
+      {isError && <h2>Error! Try again latern!</h2>}
       <ContactList />
     </div>
   );
 }
-
-export default App;

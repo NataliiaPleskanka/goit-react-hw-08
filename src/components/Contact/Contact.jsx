@@ -1,13 +1,17 @@
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contactsSlice";
+import { deleteContactThunk } from "../../redux/contactsOps";
 import css from "./Contact.module.css";
 import { FaUser, FaPhone } from "react-icons/fa6";
 
-function Contact({ contact }) {
+const Contact = ({ contactData }) => {
   const dispatch = useDispatch();
-  function onDelete(id) {
-    dispatch(deleteContact(id));
+
+  const { contact, id } = contactData || {};
+
+  if (!contact) {
+    return <div>No contact information available</div>;
   }
+
   return (
     <>
       <div>
@@ -22,11 +26,12 @@ function Contact({ contact }) {
       <button
         className={css.button}
         type="button"
-        onClick={() => onDelete(contact.id)}
+        onClick={() => dispatch(deleteContactThunk(id))}
       >
         Delete
       </button>
     </>
   );
-}
+};
+
 export default Contact;
