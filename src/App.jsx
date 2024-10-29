@@ -5,6 +5,10 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import { selectIsRefreshing } from "./redux/auth/selectors";
 import NotFound from "./pages/NotFound/NotFound";
+import HomePage from "./pages/HomePage/HomePage";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import ContactsPage from "./pages/ContactsPage/ContactsPage";
+import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 
 export default function App() {
   const isRefreshing = useSelector(selectIsRefreshing);
