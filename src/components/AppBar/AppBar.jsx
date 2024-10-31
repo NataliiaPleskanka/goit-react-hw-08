@@ -9,8 +9,8 @@ import UserMenu from "../UserMenu/UserMenu";
 const AppBar = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
-    <div className={css.AppBarBox}>
-      <header className={css.header}>
+    <div className={css.appBar}>
+      <header className={css.headerAppBar}>
         <Navigation />
         {isLoggedIn ? <UserMenu /> : <AuthNav />}
       </header>
