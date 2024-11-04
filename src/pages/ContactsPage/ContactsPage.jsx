@@ -7,6 +7,7 @@ import ContactForm from "../../components/ContactForm/ContactForm";
 import ContactList from "../../components/ContactList/ContactList";
 import Loader from "../../components/Loader/Loader";
 import toast from "react-hot-toast";
+import css from "./ContactsPage.module.css";
 
 function ContactsPage() {
   const isLoading = useSelector(selectIsLoading);
@@ -21,13 +22,13 @@ function ContactsPage() {
   }, [dispatch, isError]);
 
   return (
-    <>
-      <h1>Contacts</h1>
+    <div className={css.contactWrapper}>
+      <h1 className={css.title}>Contacts</h1>
       <ContactForm />
       <SearchBox />
       {isLoading && <Loader />}
       <ContactList />
-    </>
+    </div>
   );
 }
 
