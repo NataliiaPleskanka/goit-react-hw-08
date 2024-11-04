@@ -21,7 +21,6 @@ const RegistrationForm = () => {
         toast.success(`Welcome to Phone Book, ${res.user.name}`);
       })
       .catch(() => {
-        console.error("Registration error:", error);
         toast.error("Oops! Registration didn't go through. Please try again.");
         options.resetForm();
       });

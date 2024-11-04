@@ -25,9 +25,11 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
+  background-color: rgb(64, 60, 60);
+
+  /* display: flex;
   place-items: center;
-  min-width: 320px;
+  min-width: 320px;*/
   min-height: 100vh;
 }
 
@@ -60,4 +62,13 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: 15px 20px;
+  border-radius: 20px;
+  background-color: #333;
 }
