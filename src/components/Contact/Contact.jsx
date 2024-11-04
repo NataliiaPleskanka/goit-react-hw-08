@@ -1,16 +1,19 @@
 import { useDispatch } from "react-redux";
-import { deleteContactThunk } from "../../redux/contactsOps";
+import { deleteContact } from "../../redux/contacts/operations";
+
 import css from "./Contact.module.css";
 import { FaUser, FaPhone } from "react-icons/fa6";
 
-const Contact = ({ contactData }) => {
+const Contact = ({ name, number, id }) => {
   const dispatch = useDispatch();
 
-  const { contact, id } = contactData || {};
-
-  if (!contact) {
-    return <div>No contact information available</div>;
-  }
+  const handleDelete = (id) => {
+    dispatch(deleteContact(id))
+      .unwrap()
+      .then(() => {
+        toast.success("Contact deleted!");
+      });
+  };
 
   return (
     <>
@@ -23,11 +26,7 @@ const Contact = ({ contactData }) => {
           {contact.number}
         </p>
       </div>
-      <button
-        className={css.button}
-        type="button"
-        onClick={() => dispatch(deleteContactThunk(id))}
-      >
+      <button className={css.btnDelete} onClick={handleDelete}>
         Delete
       </button>
     </>
