@@ -4,10 +4,10 @@ import { deleteContact } from "../../redux/contacts/operations";
 import css from "./Contact.module.css";
 import { FaUser, FaPhone } from "react-icons/fa6";
 
-const Contact = ({ name, number, id }) => {
+const Contact = ({ contactData: { contact, id } }) => {
   const dispatch = useDispatch();
 
-  const handleDelete = (id) => {
+  const handleDelete = () => {
     dispatch(deleteContact(id))
       .unwrap()
       .then(() => {

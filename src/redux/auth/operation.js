@@ -42,6 +42,8 @@ export const login = createAsyncThunk(
 export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   try {
     await goitAPI.post("/users/logout");
+
+    delete goitAPI.defaults.headers.common.Authorization;
   } catch (error) {
     return thunkAPI.rejectWithValue(
       error.response?.data?.message || error.message
@@ -53,7 +55,7 @@ export const refresh = createAsyncThunk("auth/refresh", async (_, thunkAPI) => {
   try {
     const savedToken = thunkAPI.getState().auth.token;
     if (!savedToken) {
-      return thunkAPI.rejectWithValue("Токен не знайдено");
+      return thunkAPI.rejectWithValue("Token not found");
     }
     setAuthHeader(savedToken);
     const { data } = await goitAPI.get("/users/current");
@@ -64,3 +66,7 @@ export const refresh = createAsyncThunk("auth/refresh", async (_, thunkAPI) => {
     );
   }
 });
+
+export const selectUser = (state) => state.auth.user;
+export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;
+export const selectIsRefreshing = (state) => state.auth.isRefreshing;
