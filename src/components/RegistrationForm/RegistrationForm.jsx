@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 import css from "./RegistrationForm.module.css";
 import { toast } from "react-hot-toast";
-import { register } from "../../redux/auth/operation";
+import { register } from "../../redux/auth/operations";
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();

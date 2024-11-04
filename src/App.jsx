@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { refresh } from "./redux/auth/operation";
+import { refresh } from "./redux/auth/operations";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import { selectIsRefreshing } from "./redux/auth/selectors";

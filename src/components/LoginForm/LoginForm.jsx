@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 import css from "./LoginForm.module.css";
 import { toast } from "react-hot-toast";
-import { login } from "../../redux/auth/operation.js";
+import { login } from "../../redux/auth/operations.js";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
