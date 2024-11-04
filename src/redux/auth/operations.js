@@ -23,7 +23,7 @@ export const register = createAsyncThunk(
     }
   }
 );
-
+//переіменування для githut
 export const login = createAsyncThunk(
   "auth/login",
   async (credentials, thunkAPI) => {
